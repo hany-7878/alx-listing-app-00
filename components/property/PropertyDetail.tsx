@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PropertyProps } from "@/interfaces/index";
 
 const PropertyDetail: React.FC<{ property: PropertyProps }> = ({ property }) => {
@@ -11,8 +12,14 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({ property }) => 
 
       {/* Image Grid */}
       <div className="grid grid-cols-2 gap-4 mt-4">
-        <img src={property.image} alt={property.name} className="col-span-2 w-full h-96 object-cover rounded-lg" />
-        {/* Add more images */}
+        <Image
+          src={property.image}
+          alt={property.name}
+          width={1200}
+          height={600}
+          className="col-span-2 w-full h-96 object-cover rounded-lg"
+        />
+        {/* Add more images as needed */}
       </div>
 
       {/* Description */}
