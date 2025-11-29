@@ -9,7 +9,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         className="h-96 bg-cover bg-center flex flex-col justify-center items-center text-white"
-        style={{ backgroundImage: `url('https://example.com/hero-image.jpg')` }}
+        style={{ backgroundImage: `url('/assets/Hero/HeroSection.jpg')` }}
       >
         <h1 className="text-4xl font-bold">Find your favorite place here!</h1>
         <p className="mt-2 text-lg">

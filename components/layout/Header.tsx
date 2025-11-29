@@ -1,51 +1,121 @@
-import React from "react";
+"use client";
+import { FiSearch } from "react-icons/fi";
+import { IoPeopleOutline } from "react-icons/io5";
+import { LiaHotelSolid } from "react-icons/lia";
+import { MdOutlineCalendarMonth } from "react-icons/md";
 
-const Header: React.FC = () => {
+export default function Header() {
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        {/* Logo */}
-        <div className="text-2xl font-bold text-blue-600">
-          MyStay
-        </div>
+    <header className="w-full border-b bg-white">
+      {/* Top Alert Bar */}
+      <div className="bg-[#1C9E73] text-white text-sm py-2 flex justify-center items-center gap-3">
+        <span className="flex items-center gap-2">
+          <img src="/icons/plane.png" alt="" className="w-5 h-5" />
+          Overseas trip? Get the latest information on travel guides
+        </span>
+        <button className="bg-black text-white px-3 py-1 rounded-lg text-xs">
+          More info
+        </button>
+      </div>
+
+      {/* Main Header */}
+      <div className="max-w-8xl mx-auto px-8 py-4 flex items-center justify-between">
+        {/* Left: Logo */}
+        <img src="/alx-logo.png" alt="ALX Logo" className="w-14" />
 
         {/* Search Bar */}
-        <div className="flex-1 mx-4">
-          <input
-            type="text"
-            placeholder="Search for properties..."
-            className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+        <div className="shadow-md border rounded-full flex items-center px-4 py-2 gap-4 w-[56%]">
+          {/* Location */}
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-500">Location</span>
+            <input
+              placeholder="Search for destination"
+              className="text-sm outline-none"
+            />
+          </div>
+
+          <span className="h-6 w-[1px] bg-gray-300"></span>
+
+          {/* Check in */}
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-500">Check in</span>
+            <input
+              placeholder="Add date"
+              className="text-sm outline-none"
+            />
+          </div>
+
+          <span className="h-6 w-[1px] bg-gray-300"></span>
+
+          {/* Check out */}
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-500">Check out</span>
+            <input
+              placeholder="Add date"
+              className="text-sm outline-none"
+            />
+          </div>
+
+          <span className="h-6 w-[1px] bg-gray-300"></span>
+
+          {/* People */}
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-500">People</span>
+            <input
+              placeholder="Add guest"
+              className="text-sm outline-none"
+            />
+          </div>
+
+          {/* Search Icon Button */}
+          <button className="bg-[#FFD65C] p-2 rounded-full">
+            <FiSearch className="text-black text-xl" />
+          </button>
         </div>
 
-        {/* Auth Buttons */}
-        <div className="flex gap-4">
-          <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50">
-            Sign In
+        {/* Right: Buttons */}
+        <div className="flex gap-3">
+          <button className="px-5 py-2 border  rounded-full bg-[#1C9E73] text-white  hover:bg-gray-800">
+            Sign in
           </button>
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-            Sign Up
+          <button className="px-5 py-2  rounded-full bg-white  border    text-black">
+            Sign up
           </button>
         </div>
       </div>
 
-      {/* Accommodation Types */}
-      <div className="bg-gray-100 py-2">
-        <div className="container mx-auto flex gap-4 overflow-x-auto">
-          {["Rooms", "Mansion", "Countryside", "Villa", "Apartment"].map(
-            (type) => (
-              <span
-                key={type}
-                className="px-4 py-1 bg-white rounded-full shadow-sm text-gray-700 cursor-pointer hover:bg-blue-100 whitespace-nowrap"
-              >
-                {type}
-              </span>
-            )
-          )}
+      {/* Categories Nav */}
+      <div className="border-t">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex gap-10 overflow-x-auto">
+
+          {/* Example icons (replace with your own icon set) */}
+          <div className="flex flex-col items-center cursor-pointer hover:text-black text-gray-500">
+            <LiaHotelSolid className="text-2xl" />
+            <span className="text-sm">Rooms</span>
+          </div>
+
+          <div className="flex flex-col items-center cursor-pointer hover:text-black text-gray-500">
+            <img src="/icons/mansion.png" className="w-6 h-6" />
+            <span className="text-sm">Mansion</span>
+          </div>
+
+          <div className="flex flex-col items-center cursor-pointer text-black border-b-2 border-black pb-1">
+            <img src="/icons/villa.png" className="w-6 h-6" />
+            <span className="text-sm">Villa</span>
+          </div>
+
+          <div className="flex flex-col items-center cursor-pointer hover:text-black text-gray-500">
+            <img src="/icons/countryside.png" className="w-6 h-6" />
+            <span className="text-sm">Countryside</span>
+          </div>
+
+          <div className="flex flex-col items-center cursor-pointer hover:text-black text-gray-500">
+            <img src="/icons/tropical.png" className="w-6 h-6" />
+            <span className="text-sm">Tropical</span>
+          </div>
+
         </div>
       </div>
     </header>
   );
-};
-
-export default Header;
+}
