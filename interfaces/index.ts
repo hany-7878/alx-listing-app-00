@@ -29,24 +29,16 @@ export interface Review {
 }
 
 export interface PropertyProps {
-  name: string;            
-  address: Address;        
-  rating: number;          
-  category: string[];      
-  price: number;           
-  offers: Offers;          
-  description: string;     
-  discount?: string;       
-  
-  image: string;           
-  images?: string[];       
-
-  reviews: Review[];       
-}
-
-export interface Review {
+  id:number,
   name: string;
-  avatar: string;
+  address: Address;
   rating: number;
-  comment: string;
+  category: string[];
+  price: number;
+  offers: Offers;
+  description: string;
+  discount?: string;
+  image: string;
+  images?: string[];
+  reviews: Review[];
 }

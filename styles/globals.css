@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* globals.css or Home.module.css */
+.bg-hero {
+  background-image: url('/assets/Hero/HeroSection.jpg');
+}

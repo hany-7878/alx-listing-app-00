@@ -1,20 +1,40 @@
 import { useRouter } from "next/router";
-import { PROPERTYLISTINGSAMPLE } from "@/constants/index";
 import PropertyDetail from "@/components/property/PropertyDetail";
+import BookingSection from "@/components/property/BookingSection";
+import ReviewSection from "@/components/property/ReviewSection";
+import { PROPERTYLISTINGSAMPLE } from "@/constants";
+import { PropertyProps } from "@/interfaces";
 
-export default function PropertyPage() {
+const PropertyPage: React.FC = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const property = PROPERTYLISTINGSAMPLE.find(
-    (item) => item.name === id
+  if (!id) return null; // Wait until id is ready
+
+  const property: PropertyProps | undefined = PROPERTYLISTINGSAMPLE.find(
+    (p) => p.name === id // or p.id if you have an `id` field
   );
 
   if (!property) return <p>Property not found</p>;
 
   return (
-    <div className="container mx-auto p-4">
-      <PropertyDetail property={property} />
-    </div>
+    <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Property Detail */}
+      <section className="mb-12">
+        <PropertyDetail property={property} />
+      </section>
+
+      {/* Booking Section */}
+      <section className="mb-12">
+        <BookingSection price={property.price} />
+      </section>
+
+      {/* Review Section */}
+      <section className="mb-12">
+        <ReviewSection reviews={property.reviews} />
+      </section>
+    </main>
   );
-}
+};
+
+export default PropertyPage;
