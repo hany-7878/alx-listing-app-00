@@ -9,28 +9,44 @@ export interface ButtonProps {
   onClick: () => void;
 }
 
-// Address structure for each property
 export interface Address {
-  state: string;
+  state?: string;
   city: string;
   country: string;
 }
 
-// Offers structure (beds, showers, occupants)
 export interface Offers {
   bed: string;
   shower: string;
   occupants: string;
 }
 
-// Main property interface
+export interface Review {
+  name: string;
+  avatar: string;
+  comment: string;
+  rating: number;
+}
+
 export interface PropertyProps {
-  name: string;             // Name of the property
-  address: Address;         // Nested address object
-  rating: number;           // Rating of the property
-  category: string[];       // Array of categories/tags
-  price: number;            // Price per stay or night
-  offers: Offers;           // Nested offers object
-  image: string;            // Image URL
-  discount: string;         // Discount percentage as string (can be empty)
+  name: string;            
+  address: Address;        
+  rating: number;          
+  category: string[];      
+  price: number;           
+  offers: Offers;          
+  description: string;     
+  discount?: string;       
+  
+  image: string;           
+  images?: string[];       
+
+  reviews: Review[];       
+}
+
+export interface Review {
+  name: string;
+  avatar: string;
+  rating: number;
+  comment: string;
 }
