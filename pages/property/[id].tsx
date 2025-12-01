@@ -1,25 +1,17 @@
+import { PROPERTYLISTINGSAMPLE } from "@/constants/index";
 import { useRouter } from "next/router";
 import PropertyDetail from "@/components/property/PropertyDetail";
-import { PROPERTYLISTINGSAMPLE } from "@/constants";
-import { PropertyProps } from "@/interfaces";
 
-const PropertyPage: React.FC = () => {
+export default function PropertyPage() {
   const router = useRouter();
   const { id } = router.query;
-
-  if (!id) return null; // Wait until id is ready
-
-  const property: PropertyProps | undefined = PROPERTYLISTINGSAMPLE.find(
-    (p) => p.id.toString() === id
-  );
+  const property = PROPERTYLISTINGSAMPLE.find((item) => item.name === id);
 
   if (!property) return <p>Property not found</p>;
 
   return (
-    <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div>
       <PropertyDetail property={property} />
-    </main>
+    </div>
   );
-};
-
-export default PropertyPage;
+}
