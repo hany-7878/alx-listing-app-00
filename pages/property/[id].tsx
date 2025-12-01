@@ -11,9 +11,8 @@ const PropertyPage: React.FC = () => {
 
   if (!id) return null; // Wait until id is ready
 
-  const property: PropertyProps | undefined = PROPERTYLISTINGSAMPLE.find(
-    (p) => p.name === id // or p.id if you have an `id` field
-  );
+  const property: PropertyProps | undefined = PROPERTYLISTINGSAMPLE.find((p) => p.id.toString() === id);
+ 
 
   if (!property) return <p>Property not found</p>;
 
